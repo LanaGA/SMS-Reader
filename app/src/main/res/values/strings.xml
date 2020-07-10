@@ -3,4 +3,5 @@
     <string name="send_sms">Send SMS</string>
     <string name="check_sms">Check SMS</string>
     <string name="start">Start</string>
+    <string name="message">Все работает</string>
 </resources>
