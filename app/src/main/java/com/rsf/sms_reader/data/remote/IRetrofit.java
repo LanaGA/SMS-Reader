@@ -1,4 +1,4 @@
-package com.rsf.sms_reader;
+package com.rsf.sms_reader.data.remote;
 
 import com.google.gson.JsonObject;
 
