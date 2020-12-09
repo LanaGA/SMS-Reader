@@ -3,6 +3,8 @@ package com.rsf.sms_reader.ui
 import com.rsf.sms_reader.base.Event
 import com.rsf.sms_reader.data.local.base.NumbersEntity
 
+const val ADDRESS = "ADDRESS"
+const val MY_SETTINGS = "MY_SETTINGS"
 
 data class ViewState(
         val status: STATUS,

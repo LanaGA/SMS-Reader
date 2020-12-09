@@ -9,8 +9,8 @@ import android.util.Log
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.rsf.sms_reader.data.local.NumbersRepository
-import com.rsf.sms_reader.data.local.base.NumbersEntity
 import com.rsf.sms_reader.data.remote.IRetrofit
+import com.rsf.sms_reader.ui.ADDRESS
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.java.KoinJavaComponent.inject
@@ -18,10 +18,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-const val BASE_URL = "http://34.66.156.110"
-
 internal class SMSReceiver : BroadcastReceiver() {
     private val repository: NumbersRepository by inject(NumbersRepository::class.java)
+
+    companion object {
+        private val MY_SETTINGS = "my_settings"
+
+    }
 
     override fun onReceive(context: Context, intent: Intent) {
         val bundle: Bundle?
@@ -57,14 +60,17 @@ internal class SMSReceiver : BroadcastReceiver() {
 
     }
 
-    private  fun send(currentSMS: SmsMessage, context: Context){
+    private fun send(currentSMS: SmsMessage, context: Context) {
         try {
-            BASE_URL.sendPost(currentSMS.displayMessageBody.toString())
+            val sp = context.getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE)
+            val site = sp.getString(ADDRESS, "")
+            site?.sendPost(currentSMS.displayMessageBody.toString())
             Toast.makeText(context, "Сообщение отпралено", Toast.LENGTH_LONG).show()
         } catch (e: Exception) {
             Toast.makeText(context, "Проблемы с сетью", Toast.LENGTH_LONG).show()
         }
     }
+
     private fun String.sendPost(message: String) {
 
         //creating the json object to send

@@ -3,15 +3,15 @@ package com.rsf.sms_reader.di
 import androidx.room.Room
 import com.rsf.sms_reader.data.local.NumbersRepository
 import com.rsf.sms_reader.data.local.NumbersRepositoryImpl
+import com.rsf.sms_reader.data.local.base.NUMBERS_TABLE
 import com.rsf.sms_reader.data.local.base.NumbersDao
 import com.rsf.sms_reader.data.local.base.NumbersDatabase
-import com.rsf.sms_reader.data.local.base.NUMBERS_TABLE
-import com.rsf.sms_reader.data.remote.service.SMSReceiver
-import com.rsf.sms_reader.data.remote.service.ServiceGenerator
 import com.rsf.sms_reader.ui.ViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
+
+const val QUALIFIER = "QUALIFIER"
 
 val roomModule = module {
 

@@ -14,11 +14,24 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        tools:text="address"
+        android:inputType="text"
         app:layout_constraintEnd_toStartOf="@+id/buttonSetAddress"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="address" />
+
+    <EditText
+        android:id="@+id/newNumberText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="phone"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addressText" />
 
     <Button
         android:id="@+id/buttonSetAddress"
@@ -41,26 +54,13 @@
         app:layout_constraintStart_toStartOf="@+id/buttonSetAddress"
         app:layout_constraintTop_toBottomOf="@+id/buttonSetAddress" />
 
-    <EditText
-        android:id="@+id/newNumberText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toStartOf="@+id/buttonAddNumber"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addressText" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:listitem="@layout/item_number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newNumberText" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonAddNumber"
+        tools:listitem="@layout/item_number" />
 </androidx.constraintlayout.widget.ConstraintLayout>
