@@ -11,8 +11,6 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-const val QUALIFIER = "QUALIFIER"
-
 val roomModule = module {
 
     single<NumbersDatabase> {
@@ -30,7 +28,9 @@ val roomModule = module {
     single<NumbersRepository> {
         NumbersRepositoryImpl(get())
     }
+}
 
+val viewModel = module {
     viewModel {
         ViewModel(get())
     }

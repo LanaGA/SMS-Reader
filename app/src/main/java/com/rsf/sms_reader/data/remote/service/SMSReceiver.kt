@@ -4,13 +4,14 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.telephony.SmsMessage
 import android.util.Log
 import android.widget.Toast
 import com.google.gson.JsonObject
 import com.rsf.sms_reader.data.local.NumbersRepository
 import com.rsf.sms_reader.data.remote.IRetrofit
-import com.rsf.sms_reader.ui.ADDRESS
+import com.rsf.sms_reader.ui.utils.ADDRESS
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import org.koin.java.KoinJavaComponent.inject
@@ -62,7 +63,7 @@ internal class SMSReceiver : BroadcastReceiver() {
 
     private fun send(currentSMS: SmsMessage, context: Context) {
         try {
-            val sp = context.getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE)
+            val sp = PreferenceManager.getDefaultSharedPreferences(context)
             val site = sp.getString(ADDRESS, "")
             site?.sendPost(currentSMS.displayMessageBody.toString())
             Toast.makeText(context, "Сообщение отпралено", Toast.LENGTH_LONG).show()
@@ -73,7 +74,6 @@ internal class SMSReceiver : BroadcastReceiver() {
 
     private fun String.sendPost(message: String) {
 
-        //creating the json object to send
         val jsonObject = JsonObject()
         jsonObject.addProperty("message_text", message)
 

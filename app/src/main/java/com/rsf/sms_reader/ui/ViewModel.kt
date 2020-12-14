@@ -3,6 +3,10 @@ package com.rsf.sms_reader.ui
 import com.rsf.sms_reader.base.BaseViewModel
 import com.rsf.sms_reader.base.Event
 import com.rsf.sms_reader.data.local.NumbersRepository
+import com.rsf.sms_reader.ui.utils.DataEvent
+import com.rsf.sms_reader.ui.utils.STATUS
+import com.rsf.sms_reader.ui.utils.UiEvent
+import com.rsf.sms_reader.ui.utils.ViewState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

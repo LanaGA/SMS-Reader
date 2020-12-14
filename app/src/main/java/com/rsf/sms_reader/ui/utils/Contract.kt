@@ -1,4 +1,4 @@
-package com.rsf.sms_reader.ui
+package com.rsf.sms_reader.ui.utils
 
 import com.rsf.sms_reader.base.Event
 import com.rsf.sms_reader.data.local.base.NumbersEntity
