@@ -6,4 +6,5 @@
     <string name="message">Все работает</string>
     <string name="save">сохранить</string>
     <string name="add">добавить</string>
+    <string name="example_phone">+79991234568</string>
 </resources>

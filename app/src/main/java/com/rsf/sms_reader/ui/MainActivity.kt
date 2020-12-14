@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.viewState.observe(this, Observer(::render))
         buttonAddNumber.setOnClickListener {
             viewModel.processUiEvent(UiEvent.CreateNumber(NumbersEntity(newNumberText.text.toString())))
+            newNumberText.setText("")
         }
         buttonSetAddress.setOnClickListener {
             preferences.edit().putString(ADDRESS, addressText.text.toString()).commit()
